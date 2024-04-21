@@ -1,4 +1,4 @@
-package com.ink.ink.security.type;
+package type;
 
 public enum TokenType {
     BEARER

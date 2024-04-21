@@ -1,12 +1,10 @@
-package com.ink.ink.security.filter;
+package filter;
 
-import com.ink.ink.security.jwt.JwtUtil;
-import com.ink.ink.security.repository.UserRepository;
-import com.ink.ink.security.type.Role;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jwt.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,6 +14,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+import repository.UserRepository;
+import type.Role;
 
 import java.io.IOException;
 
@@ -55,7 +55,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             if(optionalDetails.isPresent()){
                 userDetails = optionalDetails.get();
                 if (request.getServletPath().contains("/admin") &&
-                        !(userDetails.getAuthorities().contains(new SimpleGrantedAuthority(Role.ADMIN.name()))
+                        !(userDetails.getAuthorities().contains(new SimpleGrantedAuthority(Rol
+                                e.ADMIN.name()))
                             || userDetails.getAuthorities().contains(new SimpleGrantedAuthority(Role.SUPERADMIN.name())))) {
                     filterChain.doFilter(request, response);
                     return;

@@ -1,10 +1,9 @@
-package com.ink.ink.security.jwt;
+package jwt;
 
 import io.jsonwebtoken.*;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import java.security.SignatureException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +38,9 @@ public class JwtUtil {
             throw new RuntimeException(e);
         } catch (MalformedJwtException e) {
             throw new RuntimeException(e);
-        }  catch (IllegalArgumentException e) {
+        } catch (SignatureException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalArgumentException e) {
             throw new RuntimeException(e);
         }
         return call;

@@ -1,9 +1,10 @@
-package com.ink.ink.security.repository;
+package repository;
 
-import com.ink.ink.security.persistence.User;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import persistence.User;
 
 import java.util.Optional;
 

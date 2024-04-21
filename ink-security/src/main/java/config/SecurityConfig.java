@@ -1,7 +1,6 @@
-package com.ink.ink.security.config;
+package config;
 
-import com.ink.ink.security.filter.JwtAuthFilter;
-import com.ink.ink.security.repository.UserRepository;
+import filter.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +19,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import repository.UserRepository;
 
 
 @Configuration

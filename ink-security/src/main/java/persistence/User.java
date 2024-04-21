@@ -1,11 +1,11 @@
-package com.ink.ink.security.persistence;
+package persistence;
 
-import com.ink.ink.security.type.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import type.Role;
 
 import java.util.Collection;
 import java.util.List;
